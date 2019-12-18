@@ -34,14 +34,8 @@ stages:
         command: buildAndPush
         repository: $(imageRepository)
         dockerfile: $(dockerfilePath)
-        containerRegistry: $(dockerRegistryServiceConnection)
+        containerRegistry: $(windowsservercore)
         tags: |
           $(tag)
--     task: Docker@3
-      displayName: Push image
-      inputs:
-       containerRegistry: 'autocons'
-       repository: 'mcr.microsoft.com/windows/servercore/iis'
-       command: 'buildAndPush'
-       Dockerfile: '**/Dockerfile'
-      
+                
+

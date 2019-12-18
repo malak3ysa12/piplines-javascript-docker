@@ -37,19 +37,11 @@ stages:
         containerRegistry: $(dockerRegistryServiceConnection)
         tags: |
           $(tag)
-- task: Docker@3
-  displayName: Push image
-  inputs:
-    containerRegistry: |
-      $(dockerHub)
-    repository: $(imageName)
-    command: push
-    tags: |
-      test1
-      test2
-- task: Docker@4
-  inputs:
-    containerRegistry: 'autocons'
-    repository: 'mcr.microsoft.com/windows/servercore/iis'
-    command: 'buildAndPush'
-    Dockerfile: '**/Dockerfile'
+-     task: Docker@3
+      displayName: Push image
+      inputs:
+       containerRegistry: 'autocons'
+       repository: 'mcr.microsoft.com/windows/servercore/iis'
+       command: 'buildAndPush'
+       Dockerfile: '**/Dockerfile'
+      
